@@ -1,0 +1,59 @@
+{
+  "name": "typesterms",
+  "productName": "TypesTerms",
+  "version": "1.0.0",
+  "description": "TypeScript library for extracting terminology from XLIFF 2.x documents using the YAKE algorithm",
+  "keywords": [
+    "XLIFF",
+    "TypeScript",
+    "terminology",
+    "term extraction",
+    "YAKE",
+    "localization",
+    "translation"
+  ],
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run clean && tsc && node dist/copy-assets.js && node -e \"const fs=require('node:fs'); ['dist/TermExtractorRunner.js','dist/BilingualExtractionRunner.js'].forEach(p=>{ if(fs.existsSync(p)) { try { fs.chmodSync(p,0o755); } catch {} } })\""
+  },
+  "engines": {
+    "node": ">=24.14.0"
+  },
+  "author": {
+    "name": "Rodolfo M. Raya",
+    "url": "https://maxprograms.com",
+    "email": "rmraya@maxprograms.com"
+  },
+  "license": "EPL-1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "/dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxprograms-com/TypesTerms.git"
+  },
+  "bin": {
+    "termextractor": "dist/TermExtractorRunner.js",
+    "bilingualextractor": "dist/BilingualExtractionRunner.js"
+  },
+  "dependencies": {
+    "typesbcp47": "^1.24.0",
+    "typesxliff": "^1.1.0",
+    "typesxml": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.0",
+    "typescript": "^6.0.3"
+  }
+}

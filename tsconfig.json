@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "noImplicitAny": true,
+    "allowUnreachableCode": false,
+    "noImplicitThis": true,
+    "sourceMap": true,
+    "declaration": true,
+    "outDir": "./dist",
+    "rootDir": "./ts",
+    "strict": true,
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "ts/**/*"
+  ]
+}
