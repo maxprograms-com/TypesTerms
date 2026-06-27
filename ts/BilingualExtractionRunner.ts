@@ -65,7 +65,8 @@ class BilingualExtractionRunner {
 
         const baseDir: string = dirname(fileURLToPath(import.meta.url));
         const lang: string = appLanguage.split('-')[0].split('_')[0];
-        const langFile: string = join(baseDir, 'terms_' + lang + '.json');
+        appLanguage = (lang === 'es') ? 'es' : 'en';
+        const langFile: string = join(baseDir, 'terms_' + appLanguage + '.json');
         const i18n: I18n = new I18n(existsSync(langFile) ? langFile : join(baseDir, 'terms_en.json'));
 
         if (showHelp || !xliffFile) {

@@ -40,7 +40,8 @@ export class TermExtractor {
 
     constructor(xliffFile: string, maxTermLength: number, minFrequency: number, maxScore: number, relevant: boolean, appLanguage?: string) {
         const baseDir: string = dirname(fileURLToPath(import.meta.url));
-        const lang: string = (appLanguage ?? Intl.DateTimeFormat().resolvedOptions().locale).split('-')[0].split('_')[0];
+        const resolved: string = (appLanguage ?? Intl.DateTimeFormat().resolvedOptions().locale).split('-')[0].split('_')[0];
+        const lang: string = resolved === 'es' ? 'es' : 'en';
         const langFile: string = join(baseDir, 'terms_' + lang + '.json');
         this.i18n = new I18n(existsSync(langFile) ? langFile : join(baseDir, 'terms_en.json'));
 

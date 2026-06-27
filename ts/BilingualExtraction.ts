@@ -44,7 +44,8 @@ export class BilingualExtraction {
         minCoOccurrenceRatio: number, appLanguage?: string): void {
 
         const baseDir: string = dirname(fileURLToPath(import.meta.url));
-        const lang: string = (appLanguage ?? Intl.DateTimeFormat().resolvedOptions().locale).split('-')[0].split('_')[0];
+        const resolved: string = (appLanguage ?? Intl.DateTimeFormat().resolvedOptions().locale).split('-')[0].split('_')[0];
+        const lang: string = resolved === 'es' ? 'es' : 'en';
         const langFile: string = join(baseDir, 'terms_' + lang + '.json');
         const i18n: I18n = new I18n(existsSync(langFile) ? langFile : join(baseDir, 'terms_en.json'));
 
@@ -89,7 +90,7 @@ export class BilingualExtraction {
             pairs = this.filterMutualBestMatch(pairs);
             pairs = this.deduplicatePairs(pairs);
 
-            this.writeCSV(outputFile, pairs);
+            this.writeCSV(outputFile, pairs, i18n);
         } finally {
             rmSync(tempDir, { recursive: true });
         }
@@ -353,9 +354,9 @@ export class BilingualExtraction {
         return [best];
     }
 
-    private writeCSV(outputFile: string, pairs: Array<TermPair>): void {
-        const header: string = 'SourceTerm,SourceScore,SourceFreq,TargetTerm,TargetScore,TargetFreq,SharedSegments,CoOccurrenceCount\n';
-        let content: string = '\ufeff' + header;
+    private writeCSV(outputFile: string, pairs: Array<TermPair>, i18n: I18n): void {
+        const header: string = i18n.getString('bilingualExtraction', 'csvHeader');
+        let content: string = '\uFEFF' + header;
         for (const pair of pairs) {
             const segmentList: string = Array.from(pair.sharedSegments).join('|');
             content += this.escapeCsv(pair.sourceTerm.text) + ','

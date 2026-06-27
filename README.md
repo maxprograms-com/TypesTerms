@@ -11,6 +11,7 @@ This project is a TypeScript port of the Java [Terms](https://github.com/maxprog
 - **Automatic Deduplication**: Intelligent merging of similar terms
 - **Multiple Quality Filters**: Co-occurrence, mutual best match, and relevance-based filtering
 - **Multi-language Support**: Native segmentation via `Intl.Segmenter` for accurate tokenization across languages
+- **Localized Error Messages**: Error messages are available in English and Spanish; all other locales fall back to English
 
 ## Requirements
 
@@ -62,7 +63,7 @@ Where:
     -minFreq:   (optional) The minimum frequency for a term to be considered. Default: 3
     -maxScore:  (optional) The maximum score for a term to be considered. Default: 10.0
     -relevant:  (optional) Include only terms with relevance >= 1.0. Default: false
-    -lang:      (optional) Language code for the application UI. Default: system locale
+    -lang:      (optional) Language code for error messages. Default: en
 ```
 
 By default, the program extracts terms with a minimum frequency of 3, a maximum length of 3 words, and a maximum score of 10.0.
@@ -106,7 +107,7 @@ Where:
     -minCoOccurrence:      (optional) Minimum times terms must co-occur. Default: 1
     -maxPairs:             (optional) Maximum number of pairs to output (0 = unlimited). Default: 0
     -minCoOccurrenceRatio: (optional) Minimum ratio of co-occurrence to total occurrences. Default: 0.7
-    -lang:                 (optional) Language code for the application UI. Default: system locale
+    -lang:                 (optional) Language code for error messages. Default: en
 ```
 
 **How It Works:**
