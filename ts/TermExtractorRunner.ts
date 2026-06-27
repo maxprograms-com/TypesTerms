@@ -9,11 +9,10 @@
  * Contributors: Maxprograms - initial API and implementation
  *******************************************************************************/
 
-import { existsSync, writeFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { I18n } from './I18n.js';
-import { Term } from './Term.js';
 import { TermExtractor } from './TermExtractor.js';
 
 class TermExtractorRunner {
@@ -93,15 +92,8 @@ class TermExtractorRunner {
 
         try {
             const extractor: TermExtractor = new TermExtractor(xliffFile, maxTermLength, minFrequency, maxScore, relevant, appLanguage);
-            const terms: Array<Term> = extractor.getTerms();
-            terms.sort((a: Term, b: Term) => a.compareTo(b));
-            const csvHeader: string = i18n.getString('termExtractor', 'csvHeader');
-            let content: string = '\uFEFF' + csvHeader;
-            for (let i: number = 0; i < terms.length; i++) {
-                content += (i + 1) + ',' + terms[i].getData() + '\n';
-            }
-            writeFileSync(outputFile, content, { encoding: 'utf16le' });
-            console.log(i18n.format(i18n.getString('termExtractor', 'written'), [outputFile, String(terms.length)]));
+            extractor.writeCsv(outputFile);
+            console.log(i18n.format(i18n.getString('termExtractor', 'written'), [outputFile, String(extractor.getTerms().length)]));
         } catch (error: unknown) {
             if (error instanceof Error) {
                 console.error(error.message);

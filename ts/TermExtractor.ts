@@ -8,7 +8,7 @@
  * Contributors: Maxprograms - initial API and implementation
  *******************************************************************************/
 
-import { existsSync } from 'node:fs';
+import { existsSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { XliffDocument, XliffGroup, XliffSegment, XliffUnit } from 'typesxliff';
@@ -69,6 +69,16 @@ export class TermExtractor {
 
     getTerms(): Array<Term> {
         return this.terms;
+    }
+
+    writeCsv(outputFile: string): void {
+        const sorted: Array<Term> = [...this.terms].sort((a: Term, b: Term) => a.compareTo(b));
+        const header: string = this.i18n.getString('termExtractor', 'csvHeader');
+        let content: string = '\uFEFF' + header;
+        for (let i: number = 0; i < sorted.length; i++) {
+            content += (i + 1) + ',' + sorted[i].getData() + '\n';
+        }
+        writeFileSync(outputFile, content, { encoding: 'utf16le' });
     }
 
     getSentenceToSegmentMap(): Array<number> {
