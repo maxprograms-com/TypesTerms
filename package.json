@@ -1,7 +1,7 @@
 {
   "name": "typesterms",
   "productName": "TypesTerms",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "TypeScript library for extracting terminology from XLIFF 2.x documents using the YAKE algorithm",
   "keywords": [
     "XLIFF",
@@ -48,9 +48,9 @@
     "bilingualextractor": "dist/BilingualExtractionRunner.js"
   },
   "dependencies": {
-    "typesbcp47": "^1.24.0",
-    "typesxliff": "^1.2.0",
-    "typesxml": "^2.2.0"
+    "typesbcp47": "^1.24.1",
+    "typesxliff": "^1.2.1",
+    "typesxml": "^2.2.1"
   },
   "devDependencies": {
     "@types/node": "^24.13.2",
