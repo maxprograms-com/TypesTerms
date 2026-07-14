@@ -48,9 +48,9 @@
     "bilingualextractor": "dist/BilingualExtractionRunner.js"
   },
   "dependencies": {
-    "typesbcp47": "^1.24.0",
-    "typesxliff": "^1.2.0",
-    "typesxml": "^2.2.0"
+    "typesbcp47": "^1.24.1",
+    "typesxliff": "^1.2.1",
+    "typesxml": "^2.2.1"
   },
   "devDependencies": {
     "@types/node": "^24.13.2",
