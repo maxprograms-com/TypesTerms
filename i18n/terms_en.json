@@ -21,7 +21,7 @@
         "minCoOccurrenceError": "Minimum co-occurrence must be at least 1",
         "maxPairsError": "Maximum pairs cannot be negative",
         "minRatioError": "Minimum co-occurrence ratio must be between 0.0 and 1.0",
-        "csvHeader": "SourceTerm,SourceScore,SourceFreq,TargetTerm,TargetScore,TargetFreq,SharedSegments,CoOccurrenceCount\n",
+        "csvHeader": "Source Term,Source Score,Source Freq,Target Term,Target Score,Target Freq,Shared Segments,Co-Occurrence Count\n",
         "parseError": "Failed to parse XLIFF file: {0}",
         "noSrcLang": "XLIFF file has no srcLang: {0}",
         "noTrgLang": "XLIFF file has no trgLang: {0}"

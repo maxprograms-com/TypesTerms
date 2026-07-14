@@ -1,6 +1,6 @@
 {
     "termExtractor": {
-        "csvHeader": "#,Término,Puntaje,Capitalización,Posición,Frecuencia,Relevancia,Relación,Diferente\n",
+        "csvHeader": "#,Término,Puntaje,Mayúsculas/Minúsculas,Posición,Frecuencia,Relevancia,Relación,Diferente\n",
         "usage": "Uso:\n\n    termextractor [-help] -xliff archivoXliff [-output archivoCsv] [-minFreq frecuencia] [-maxLength largo] [-maxScore puntaje] [-relevant] [-lang código]\n\nDonde:\n\n    -help:      (opcional) Mostrar esta información de uso y salir\n    -xliff:     Archivo XLIFF a procesar\n    -output:    (opcional) Archivo en donde guardar los términos\n    -maxLength: (opcional) Máximo número de palabras en un término. Predeterminado: 3\n    -minFreq:   (opcional) Frecuencia mínima para considerar un término. Predeterminado: 3\n    -maxScore:  (opcional) Puntaje máximo para considerar un término. Predeterminado: 10.0\n    -relevant:  (opcional) Excluir términos de una palabra. Predeterminado: false\n    -lang:      (opcional) Código de idioma para mensajes de error. Predeterminado: en\n",
         "written": "Escrito: {0} ({1} términos)",
         "fileNotFound": "Archivo no encontrado: {0}",
@@ -21,7 +21,7 @@
         "minCoOccurrenceError": "La co-ocurrencia mínima debe ser al menos 1",
         "maxPairsError": "El máximo de pares no puede ser negativo",
         "minRatioError": "La relación mínima de co-ocurrencia debe estar entre 0.0 y 1.0",
-        "csvHeader": "TérminoOrigen,PuntajeOrigen,FrecOrigen,TérminoDestino,PuntajeDestino,FrecDestino,SegmentosCompartidos,CoincidenciasCoOcurrencia\n",
+        "csvHeader": "Término Origen,Puntaje Origen,Frec.Origen,Término Destino,Puntaje Destino,Frec.Destino,Segmentos Compartidos,Coincidencias Co-ocurrencia\n",
         "parseError": "No se puede analizar el archivo XLIFF: {0}",
         "noSrcLang": "El archivo XLIFF no tiene srcLang: {0}",
         "noTrgLang": "El archivo XLIFF no tiene trgLang: {0}"
