@@ -3,6 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/typesterms)](https://www.npmjs.com/package/typesterms)
 [![npm license](https://img.shields.io/npm/l/typesterms)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/implementation-native%20TypeScript-3178c6)](https://www.typescriptlang.org/)
+
 TypeScript tools for extracting terms from XLIFF 2.x files.
 
 This project is a TypeScript port of the Java [Terms](https://github.com/maxprograms-com/Terms) project. It is based on the paper *YAKE! Keyword extraction from single documents using multiple local features* by Ricardo Campos, Vítor Mangaravite, Arian Pasquali, Alípio Jorge, Célia Nunes and Adam Jatowt.
